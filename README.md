@@ -18,7 +18,8 @@ npm install ngx-post-message --save
 
 **main.ts**
 ```typescript
-import {PostMessageModule} from 'ngx-post-message/ngx-post-message'; // import {PostMessageModule} from 'ngx-post-message'
+import {PostMessageModule} from 'ngx-post-message/ngx-post-message';
+// import {PostMessageModule} from 'ngx-post-message'
 
 @NgModule({
     bootstrap: [ApplicationComponent],
