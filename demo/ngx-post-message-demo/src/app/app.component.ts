@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 
-import { IPostMessageBridge, IPostMessageEventTarget, PostMessageBridgeFactory } from 'ngx-post-message/index';
+import { IPostMessageBridge, IPostMessageEventTarget, PostMessageBridgeFactory } from 'ngx-post-message/ngx-post-message';
 
 @Component({
   selector: 'app-root',
