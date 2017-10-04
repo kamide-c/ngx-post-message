@@ -92,10 +92,13 @@ export class AppFramePostMessageModule {
 ## Demo
 
 * [Live demo](https://apoterenko.github.io/ngx-post-message)
+
 * [ngx-post-message-demo](demo/ngx-post-message-demo)
 ```sh
 npm start
 ```
+Then go to http://localhost:4200
+
 * [ngx-post-message-demo-frame](demo/ngx-post-message-demo-frame)
 ```sh
 npm start
