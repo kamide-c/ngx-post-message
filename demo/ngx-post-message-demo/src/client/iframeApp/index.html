@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<body>
+	The inner application has been started...<br>
+	Message: <div id="placeholder"></div>
+	<script>
+		window.addEventListener("message", function (event) {
+			if (Array.isArray(event.data) && event.data[0].channel) {
+				var message = JSON.stringify(event.data[0]);
+				console.debug('[Child] A message has been received from the parent', message);
+				document.getElementById('placeholder').innerHTML = message;
+			}
+		}, false);
+
+		console.debug('[Child] The child going to send an empty message <Logout> to the parent');
+		window.top.postMessage([{channel: 'Logout'}], '*');
+	</script>
+</body>
+</html>
