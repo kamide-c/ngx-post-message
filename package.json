@@ -23,12 +23,8 @@
     "ngc-build": "node_modules/.bin/ngc -p tsconfig.json",
     "deploy": "npm install && npm run ngc-build && npm publish ./"
   },
-  "dependencies": {
-    "ts-smart-logger": "^0.0.4",
-    "core-js": ">=2.4.0"
-  },
   "peerDependencies": {
-    "@angular/core": ">=4.0.0",
+    "@angular/core": ">=5.0.0",
     "rxjs": ">=5.0.0"
   },
   "devDependencies": {
