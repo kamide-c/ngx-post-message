@@ -4,8 +4,8 @@ import {
 	NgZone
 } from '@angular/core';
 
-import {IPostMessageBridge} from "./IPostMessageBridge";
-import {PostMessageBridgeImpl} from "./PostMessageBridgeImpl";
+import {IPostMessageBridge} from './IPostMessageBridge';
+import {PostMessageBridgeImpl} from './PostMessageBridgeImpl';
 
 @Injectable()
 export class PostMessageBridgeFactory {
