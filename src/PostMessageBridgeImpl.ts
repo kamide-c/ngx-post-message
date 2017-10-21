@@ -12,16 +12,12 @@ import {
 
 import {Subscriber} from 'rxjs';
 
-import {LoggerFactory, ILogger} from 'ts-smart-logger/index';
-
 import {IPostMessageBridge} from './IPostMessageBridge';
 import {IPostMessage} from './IPostMessage';
 import {IPostMessageEventTarget} from './IPostMessageEventTarget';
 
 @Injectable()
 export class PostMessageBridgeImpl implements IPostMessageBridge {
-
-    private static logger:ILogger = LoggerFactory.makeLogger(PostMessageBridgeImpl);
 
     private busSource:PostMessageBusSource;
     private busSink:PostMessageBusSink;
@@ -51,11 +47,11 @@ export class PostMessageBridgeImpl implements IPostMessageBridge {
                     target.postMessage(messages, targetOrigin);
 
                     if (this.loggingEnable) {
-                        PostMessageBridgeImpl.logger.debug(`[$PostMessageBridgeImpl] The messages`, messages, `were sent from the source`, source, `to the target`, target);
+                        console.debug(`[$PostMessageBridgeImpl] The messages`, messages, `were sent from the source`, source, `to the target`, target);
                     }
                 } else {
                     if (this.loggingEnable) {
-                        PostMessageBridgeImpl.logger.warn(`[$PostMessageBridgeImpl] It's impossible to send the messages `, messages, ` because the source and the target are equal! The source is`, source);
+                      console.warn(`[$PostMessageBridgeImpl] It's impossible to send the messages `, messages, ` because the source and the target are equal! The source is`, source);
                     }
                 }
             }
@@ -63,7 +59,7 @@ export class PostMessageBridgeImpl implements IPostMessageBridge {
         this.busSink.attachToZone(this.ngZone);
 
         if (this.loggingEnable) {
-            PostMessageBridgeImpl.logger.debug(`[$PostMessageBridgeImpl] The bridge service was successfully initiated for the target origin '${targetOrigin}'.`);
+            console.debug(`[$PostMessageBridgeImpl] The bridge service was successfully initiated for the target origin '${targetOrigin}'.`);
         }
         return this;
     }
@@ -79,7 +75,7 @@ export class PostMessageBridgeImpl implements IPostMessageBridge {
         this._targets.set(bridgeName, this.busSink.to(bridgeName));
 
         if (this.loggingEnable) {
-            PostMessageBridgeImpl.logger.debug(`[$PostMessageBridgeImpl] The bridge '${bridgeName}' was successfully registered.`);
+          console.debug(`[$PostMessageBridgeImpl] The bridge '${bridgeName}' was successfully registered.`);
         }
         return this;
     }
@@ -119,10 +115,10 @@ export class PostMessageBridgeImpl implements IPostMessageBridge {
                 subscriber.unsubscribe();
                 subscribers.delete(listener);
             } else {
-                PostMessageBridgeImpl.logger.warn(`[$PostMessageBridgeImpl] There is no existing listener for '${bridgeName}'.`);
+                console.warn(`[$PostMessageBridgeImpl] There is no existing listener for '${bridgeName}'.`);
             }
         } else {
-            PostMessageBridgeImpl.logger.warn(`[$PostMessageBridgeImpl] There are no existing listeners for '${bridgeName}'.`);
+          console.warn(`[$PostMessageBridgeImpl] There are no existing listeners for '${bridgeName}'.`);
         }
         return this;
     }
@@ -137,7 +133,7 @@ export class PostMessageBridgeImpl implements IPostMessageBridge {
             subscribers.forEach((subscriber: Subscriber<any>, listener: Function) => subscriber.unsubscribe());
             this._subscribers.delete(bridgeName);
         } else {
-            PostMessageBridgeImpl.logger.warn(`[$PostMessageBridgeImpl] There are no existing listeners for '${bridgeName}'.`);
+          console.warn(`[$PostMessageBridgeImpl] There are no existing listeners for '${bridgeName}'.`);
         }
         return this;
     }
