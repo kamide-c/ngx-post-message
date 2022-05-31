@@ -92,7 +92,8 @@ export class PostMessageBridgeImpl implements IPostMessageBridge {
      * @override
      */
     public addListener(bridgeName: string, listener: Function): IPostMessageBridge {
-        const subscriber: Subscriber<any> = this._sources.get(bridgeName).subscribe(listener);
+        let subscriber: Subscriber<any>;
+        subscriber.next(this._sources.get(bridgeName).subscribe());
 
         let subscribers: Map<Function, Subscriber<any>> = this._subscribers.get(bridgeName);
         if (!subscribers) {
