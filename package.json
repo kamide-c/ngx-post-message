@@ -1,31 +1,30 @@
 {
   "name": "ngx-post-message",
-  "version": "1.5.3",
+  "version": "1.6.0",
   "license": "MIT",
   "keywords": [
     "angular",
     "angular2",
-    "angular4",
+    "angular13",
     "post",
     "post-message",
     "postMessage",
     "channel",
     "angular-post-message",
     "angular2-post-message",
-    "angular4-post-message",
+    "angular13-post-message",
     "ng2-post-message",
-    "ng4-post-message",
     "ng-post-message"
   ],
   "author": "Alex Poter <a.poterenko@gmail.com>",
   "scripts": {
     "clean": "npm cache clean",
-    "ngc-build": "node_modules/.bin/ngc -p tsconfig.json",
+    "ngc-build": "ngc -p tsconfig.json",
     "deploy": "npm install && npm run ngc-build && npm publish ./"
   },
   "peerDependencies": {
-    "@angular/core": ">=5.0.0",
-    "rxjs": ">=5.0.0"
+    "@angular/core": "13.3.10",
+    "rxjs": "^7.5.5"
   },
   "devDependencies": {
     "@angular/compiler": "13.3.10",
@@ -47,7 +46,7 @@
   "typings": "ngx-post-message.d.ts",
   "main": "ngx-post-message.js",
   "engines": {
-    "node": ">= 4.2.1",
-    "npm": ">= 3"
+    "node": ">= 10.13.0",
+    "npm": ">= 8.0.0"
   }
 }

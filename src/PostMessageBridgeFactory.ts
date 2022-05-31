@@ -10,7 +10,7 @@ import {PostMessageBridgeImpl} from './PostMessageBridgeImpl';
 @Injectable()
 export class PostMessageBridgeFactory {
 
-	constructor(@Inject(NgZone) private ngZone: NgZone) {
+	constructor(private ngZone: NgZone) {
 	}
 
 	public makeInstance(): IPostMessageBridge {
