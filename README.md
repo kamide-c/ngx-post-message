@@ -1,6 +1,6 @@
 # ngx-post-message
 
-An implementation of the cross-origin communication via postMessage at Angular2 [4.3.1 compatible].
+An implementation of the cross-origin communication via postMessage at Angular2 [13.3.10 compatible].
 
 ## Description
 
